@@ -9,8 +9,7 @@ Create table Students(
 Id int identity Primary key,
 Name nvarchar(25),
 Surname nvarchar(25),
-GroupId int  references Groups 
-
+GroupId int foreign key  references Groups(GroupId) 
 )
 Alter table Students
 Add Grade int
@@ -19,11 +18,11 @@ Insert into Groups(Name)
 VALUES('P224'),
 ('P124'),
 ('P221')
-Insert into Students(Name,Surname,GroupId)
-vALUES('Altan','Ibrahimli',1),
-('Metin','Agayev',2),
-('Mayil','Kerimov',3),
-('Ferid','Aliyev',3)
+Insert into Students(Name,Surname,GroupId,Grade)
+vALUES('Altan','Ibrahimli',1,30),
+('Metin','Agayev',2,40),
+('Mayil','Kerimov',3,70),
+('Ferid','Aliyev',3,99)
 
 Select * from Students s inner Join Groups g on s.GroupId = g.Id where g.Name='P224'
 Select g.Name,Count(s.Id)  as [say] from Students s inner join Groups g on  s.GroupId = g.ID group by g.Name

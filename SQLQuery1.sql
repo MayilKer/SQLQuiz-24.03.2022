@@ -28,7 +28,7 @@ Select * from Students s inner Join Groups g on s.GroupId = g.Id where g.Name='P
 Select g.Name,Count(s.Id)  as [say] from Students s inner join Groups g on  s.GroupId = g.ID group by g.Name
 Create view usv_GroupV
 AS
-Select s.Name,s.Surname,g.Id as [Qrup],s.Grade from Students s join Groups g on s.GroupId = g.Id
+Select s.Name,s.Surname,Name.Id as [Qrup],s.Grade from Students s join Groups g on s.GroupId = g.Id
 select * from usv_GroupV
 create procedure usp_Check
 @Grade int 
